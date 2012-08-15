@@ -149,7 +149,9 @@
 
         this.deltaLinearVelocity.setZero();
         this.deltaAngularVelocity.setZero();
-        this.invMass = this.linearFactor.multiplyScalar( this.inverseMass );
+        this.invMass = this.linearFactor.multiplyScalar(
+          this.inverseMass, Bump.Vector3.create()
+        );
         this.pushVelocity.setZero();
         this.turnVelocity.setZero();
       },
@@ -865,7 +867,7 @@
       this.motionState = motionState;
       this.startWorldTransform = Bump.Transform.create();
       this.collisionShape = collisionShape;
-      this.localInertia = localInertia.clone();
+      this.localInertia = Bump.Vector3.create().assign( localInertia );
       this.linearDamping = 0;
       this.angularDamping = 0;
       this.friction = 0.5;

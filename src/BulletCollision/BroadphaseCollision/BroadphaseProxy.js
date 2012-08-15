@@ -95,8 +95,8 @@
       this.multiSapParentProxy = multiSapParentProxy || null;
       this.uniqueId = 0;
 
-      this.aabbMin = aabbMin.clone();
-      this.aabbMax = aabbMax.clone();
+      this.aabbMin = Bump.Vector3.create().assign( aabbMin );
+      this.aabbMax = Bump.Vector3.create().assign( aabbMax );
 
     },
 
