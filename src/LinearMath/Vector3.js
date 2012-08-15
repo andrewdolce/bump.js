@@ -46,17 +46,13 @@
 
     // ## Member functions
     members: {
-      // Clones `this` vector into `dest`. If `dest` is not provided,
-      // a new Vector3 is created and returned.
+      // Clones `this` vector into `dest`.
       clone: function( dest ) {
-        if ( dest ) {
-          dest.x = this.x;
-          dest.y = this.y;
-          dest.z = this.z;
-          dest.w = this.w;
-          return dest;
-        }
-        return Bump.Vector3.create( this.x, this.y, this.z );
+        dest.x = this.x;
+        dest.y = this.y;
+        dest.z = this.z;
+        dest.w = this.w;
+        return dest;
       },
 
       // Assigns `other` vector into `this` vector.
@@ -68,19 +64,13 @@
         return this;
       },
 
-      // Add `this` to `vec`, storing the result in `dest` if provided.
-      // If not, a new Vector3 is created and returned.
+      // Add `this` to `vec`, storing the result in `dest`.
       // This function is analogous to `btVector3`'s `operator+`.
       add: function( vec, dest ) {
-        if ( dest ) {
-          dest.x = this.x + vec.x;
-          dest.y = this.y + vec.y;
-          dest.z = this.z + vec.z;
-          return dest;
-        }
-        return Bump.Vector3.create( this.x + vec.x,
-                                    this.y + vec.y,
-                                    this.z + vec.z );
+        dest.x = this.x + vec.x;
+        dest.y = this.y + vec.y;
+        dest.z = this.z + vec.z;
+        return dest;
       },
 
       // Add `this` vector to `v`, storing the result in `this`.
@@ -92,22 +82,13 @@
         return this;
       },
 
-      // Subtract `vec` from `this`, storing thee result in `dest` if provided.
-      // If not, a new Vector3 is created and returned.
+      // Subtract `vec` from `this`, storing the result in `dest`.
       // This function is analogous to `btVector3`'s `operator-`.
       subtract: function( vec, dest ) {
-        if ( dest ) {
-          dest.x = this.x - vec.x;
-          dest.y = this.y - vec.y;
-          dest.z = this.z - vec.z;
-          return dest;
-        }
-
-        return Bump.Vector3.create(
-          this.x - vec.x,
-          this.y - vec.y,
-          this.z - vec.z
-        );
+        dest.x = this.x - vec.x;
+        dest.y = this.y - vec.y;
+        dest.z = this.z - vec.z;
+        return dest;
       },
 
       // Subtract `v` from `this`, storing the result in `this`.
@@ -119,21 +100,13 @@
         return this;
       },
 
-      // Multiply `this` vector by the given `scalar`, storing result in `dest`
-      // if provided. If not, a new Vector3 is created and returned.
+      // Multiply `this` vector by the given `scalar`, storing result in `dest`.
       // This function is analogous to `btVector3`'s `operator*` for `btScalar`.
       multiplyScalar: function( scalar, dest ) {
-        if ( dest ) {
-          dest.x = this.x * scalar;
-          dest.y = this.y * scalar;
-          dest.z = this.z * scalar;
-          return dest;
-        }
-        return Bump.Vector3.create(
-          this.x * scalar,
-          this.y * scalar,
-          this.z * scalar
-        );
+        dest.x = this.x * scalar;
+        dest.y = this.y * scalar;
+        dest.z = this.z * scalar;
+        return dest;
       },
 
       // Multiply `this` by the given `scalar`, storing the result in `this`.
@@ -146,22 +119,13 @@
       },
 
       // Performs element-wise multiplication, multiply the elements of `this` by
-      // the corresponding elements of `vec`, and storing the result in `dest` if
-      // provided. If not, a new Vector3 is created and returned.
+      // the corresponding elements of `vec`, and storing the result in `dest`.
       // This function is analogous to `btVector3`'s `operator*` for `btVector3`.
       multiplyVector: function( vec, dest ) {
-        if ( dest ) {
-          dest.x = this.x * vec.x;
-          dest.y = this.y * vec.y;
-          dest.z = this.z * vec.z;
-          return dest;
-        }
-
-        return Bump.Vector3.create(
-          this.x * vec.x,
-          this.y * vec.y,
-          this.z * vec.z
-        );
+        dest.x = this.x * vec.x;
+        dest.y = this.y * vec.y;
+        dest.z = this.z * vec.z;
+        return dest;
       },
 
       // Performs in-place element-wise multiplication, multiply the elements of
@@ -175,24 +139,15 @@
         return this;
       },
 
-      // Divides `this` vector by the given `scalar`, storing the result in `dest`
-      // if provided. If not, a new Vector3 is created and returned.
+      // Divides `this` vector by the given `scalar`, storing the result in `dest`.
       // This function is analogous to `btVector3`'s `operator/` for `btScalar`.
       divideScalar: function( scalar, dest ) {
         var inv = 1 / scalar;
 
-        if ( dest ) {
-          dest.x = this.x * inv;
-          dest.y = this.y * inv;
-          dest.z = this.z * inv;
-          return dest;
-        }
-
-        return Bump.Vector3.create(
-          this.x * inv,
-          this.y * inv,
-          this.z * inv
-        );
+        dest.x = this.x * inv;
+        dest.y = this.y * inv;
+        dest.z = this.z * inv;
+        return dest;
       },
 
       // Divides `this` vector by the given `scalar`, storing the result in `this`.
@@ -206,19 +161,13 @@
       },
 
       // Performs element-wise division, dividing the elements of `this` by
-      // the corresponding elements of `vec`, and storing the result in `dest` if
-      // provided. If not, a new Vector3 is created and returned.
+      // the corresponding elements of `vec`, and storing the result in `dest`.
       // This function is analogous to `btVector3`'s `operator/` for `btVector3`.
       divideVector: function( vec, dest ) {
-        if ( dest ) {
-          dest.x = this.x / vec.x;
-          dest.y = this.y / vec.y;
-          dest.z = this.z / vec.z;
-          return dest;
-        }
-        return Bump.Vector3.create( this.x / vec.x,
-                                    this.y / vec.y,
-                                    this.z / vec.z );
+        dest.x = this.x / vec.x;
+        dest.y = this.y / vec.y;
+        dest.z = this.z / vec.z;
+        return dest;
       },
 
       // Performs in-place element-wise division, dividing the elements of
@@ -291,15 +240,13 @@
         return this.divideScalarSelf( this.length() );
       },
 
-      // Computes normalized version of `this` vector, stores result in
-      // `dest` if provided. If not, creates and returns new Vector3.
+      // Computes normalized version of `this` vector, stores result in `dest.
       normalized: function( dest ) {
-        // divide function will check if dest is null
         return this.divideScalar( this.length(), dest );
       },
 
       // Returns a rotated version of `this` vector, rotating around `wAxis` by `angle`.
-      // Stores result in `dest` if provided. If not, creates and returns a new Vector3.
+      // Stores result in `dest`.
       //
       // Uses the following temporary variables:
       //
@@ -307,8 +254,6 @@
       // - `tmpVec2`
       // - `tmpVec3`
       rotate: function( wAxis, angle, dest ) {
-        if ( !dest ) { dest = Bump.Vector3.create(); }
-
         var o = wAxis.multiplyScalar( wAxis.dot( this ), tmpVec1 );
         var x = this.subtract( o, tmpVec2 );
         var y = wAxis.cross( this, tmpVec3 );
@@ -325,53 +270,31 @@
         return Math.acos( this.dot( v ) / s );
       },
 
-      // Negates the elements of `this` vector and returns it. Corresponds to
-      // the unary operator `operator-`.
+      // Negates the elements of `this` vector, stores the result in `dest,
+      // and returns it. Corresponds to the unary operator `operator-`.
       negate: function( dest ) {
-        if ( dest ) {
-          dest.x = -this.x;
-          dest.y = -this.y;
-          dest.z = -this.z;
+        dest.x = -this.x;
+        dest.y = -this.y;
+        dest.z = -this.z;
 
-          return dest;
-        }
-
-        return Bump.Vector3.create( -this.x, -this.y, -this.z );
+        return dest;
       },
 
       // Returns a Vector3 with the absolute values of `this` vector's elements.
-      // Stores the result in `dest` if provided. If not, a new Vector3 is
-      // created and returned.
+      // Stores the result in `dest`.
       absolute: function( dest ) {
-        if ( dest ) {
-          dest.x = Math.abs( this.x );
-          dest.y = Math.abs( this.y );
-          dest.z = Math.abs( this.z );
+        dest.x = Math.abs( this.x );
+        dest.y = Math.abs( this.y );
+        dest.z = Math.abs( this.z );
 
-          return dest;
-        }
-
-        return Bump.Vector3.create(
-          Math.abs( this.x ),
-          Math.abs( this.y ),
-          Math.abs( this.z )
-        );
+        return dest;
       },
 
       // Computes the cross product of `this` and `vec`, storing the result in
-      // `dest` if provided. If not a new Vector3 is created and returned.
-      // Note that this will fail if `dest` === `this`. Instead, use the
-      // `crossSelf` function.
+      // `dest`.
       cross: function( vec, dest ) {
-        if ( dest ) {
-          return dest.setValue(
-            this.y * vec.z - this.z * vec.y,
-            this.z * vec.x - this.x * vec.z,
-            this.x * vec.y - this.y * vec.x
-          );
-        }
-
-        return Bump.Vector3.create(
+        // TODO: Consider inlining setValue here to avoid function overhead.
+        return dest.setValue(
           this.y * vec.z - this.z * vec.y,
           this.z * vec.x - this.x * vec.z,
           this.x * vec.y - this.y * vec.x
@@ -507,16 +430,10 @@
       // of 'vec'. Stores the result in dest if provided. If not, a new Vector3
       // is created and returned.
       lerp: function( vec, t, dest ) {
-        if ( dest ) {
-          dest.x = this.x + ( vec.x - this.x ) * t;
-          dest.y = this.y + ( vec.y - this.y ) * t;
-          dest.z = this.z + ( vec.z - this.z ) * t;
-          return dest;
-        }
-
-        return Bump.Vector3.create( this.x + ( vec.x - this.x ) * t,
-                                    this.y + ( vec.y - this.y ) * t,
-                                    this.z + ( vec.z - this.z ) * t );
+        dest.x = this.x + ( vec.x - this.x ) * t;
+        dest.y = this.y + ( vec.y - this.y ) * t;
+        dest.z = this.z + ( vec.z - this.z ) * t;
+        return dest;
       },
 
       // Perform element-wise comparison of `this` and `vec` and return true if
@@ -629,13 +546,10 @@
 
     members: {
       clone: function( dest ) {
-        dest = dest || Bump.Vector4.create();
-
         return dest.setValue( this.x, this.y, this.z, this.w );
       },
 
       absolute4: function( dest ) {
-        dest = dest || Bump.Vector4.create();
         return dest.setValue(
           Math.abs( this.x ),
           Math.abs( this.y ),
